@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.01.09.00">
     <object class="Event" id="{8e7e0a12-0d22-4c4d-ac24-32a75122eea8}">
+        <relationship name="selectables">
+            <destination>{a62b4dc0-6194-4f05-9e1c-bfd356c14e3c}</destination>
+        </relationship>
         <relationship name="uiLastParameterSelection">
             <destination>{837b241d-63dd-41ed-ac17-ef2ac64a0b45}</destination>
         </relationship>
@@ -13,13 +16,10 @@
     <object class="GroupTrack" id="{36df368f-1136-4617-86fc-965be9f6e8ed}"/>
     <object class="Timeline" id="{837b241d-63dd-41ed-ac17-ef2ac64a0b45}">
         <property name="cursorPosition">
-            <value>196.45626393656349</value>
+            <value>97.993849797022989</value>
         </property>
         <property name="uiLastRulerScaleRatio">
-            <value>0.16848736186669253</value>
-        </property>
-        <property name="uiLastHorizontalScrollBarValue">
-            <value>748</value>
+            <value>0.23443504736129903</value>
         </property>
     </object>
     <object class="GameParameter" id="{e6bce667-1fbe-4006-a752-595c7e25a1bb}">
@@ -67,18 +67,18 @@
     <object class="NamedMarker" id="{95c9e71d-54bc-4a0e-bccb-b8d0705af4dd}"/>
     <object class="NamedMarker" id="{09805242-a900-4806-8b37-20dc68d88013}"/>
     <object class="TransitionMarker" id="{68776627-81a4-4ff5-be36-47a8308027cb}"/>
-    <object class="TransitionMarker" id="{5ae56a4f-4505-4277-8581-6e5b8ddeeb04}"/>
     <object class="TransitionMarker" id="{ab2a5c74-cfeb-4e57-9e12-2ff165c44718}"/>
     <object class="TransitionMarker" id="{a62b4dc0-6194-4f05-9e1c-bfd356c14e3c}"/>
+    <object class="TransitionMarker" id="{81ba5334-abe7-4a8c-a8df-8825b49bd807}"/>
     <object class="MixerBusEffectChain" id="{679410dd-f433-4766-8583-71ff0c75dcf0}"/>
     <object class="MixerBusPanner" id="{7d019e70-c3c9-4a11-8d00-c1f0b1459297}"/>
     <object class="MixerBusFader" id="{754c6019-bc25-48f8-928a-1f55ea49ddfb}"/>
     <object class="MixerBusEffectChain" id="{bffee408-4c45-4524-ae04-3259d589fc95}"/>
     <object class="MixerBusPanner" id="{5e647141-42ee-4e83-9fc3-eaffe7ea589f}"/>
     <object class="ParameterCondition" id="{00ec5013-c19b-49d4-afb8-6caae3aa68e8}"/>
-    <object class="ParameterCondition" id="{0f643819-f101-49ce-aac7-41aae3c4f00a}"/>
     <object class="ParameterCondition" id="{5ae9a972-d2c5-4d38-b083-4af19b9bc2d0}"/>
     <object class="ParameterCondition" id="{286e0e28-e176-422a-9795-116507a88d55}"/>
+    <object class="ParameterCondition" id="{9f87c248-8616-402f-9d1d-508032a83a9b}"/>
     <object class="MixerBusFader" id="{38030f36-94ad-4dba-aa1a-ba67a1252d60}"/>
     <object class="MixerBusFader" id="{ac85a4dc-4fd4-4b99-96ff-dffeced30289}"/>
 </objects>
