@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.09.00">
+    <object class="Event" id="{d3b14ac9-a295-4fd8-997f-1c40003db891}"/>
+    <object class="MasterTrack" id="{cd93c712-91b5-4158-aff8-b2b92b26c51f}"/>
+    <object class="MixerInput" id="{4f65e4d0-ba66-4e20-ae50-7f1ff8e97e57}"/>
+    <object class="EventAutomatableProperties" id="{4009870d-ed2d-420e-b2f9-98c759969168}"/>
+    <object class="MarkerTrack" id="{423ae153-dce9-4357-8dc4-10c7dadd367d}"/>
+    <object class="GroupTrack" id="{c1caa5ff-ad1e-4b31-aae8-846f2ccbfb4f}"/>
+    <object class="Timeline" id="{16889ec5-6a37-4943-bd3e-5e426e40705f}">
+        <property name="uiLastRulerScaleRatio">
+            <value>0.049278304014433914</value>
+        </property>
+    </object>
+    <object class="EventMixerMaster" id="{cf7008d2-7a78-40b1-835b-8bc8b1a5f201}">
+        <relationship name="input">
+            <destination>{efb0252c-9454-497c-be76-ba0e305b02d2}</destination>
+        </relationship>
+    </object>
+    <object class="MixerBusEffectChain" id="{b8f51a21-8aea-4d3c-a52a-0d9df3a302c7}"/>
+    <object class="MixerBusPanner" id="{dfc0e75b-97bc-4a87-8fd5-e1e602676c07}"/>
+    <object class="SingleSound" id="{22454ad3-458d-469a-bfbe-4f6e768e5d8f}"/>
+    <object class="EventMixerGroup" id="{efb0252c-9454-497c-be76-ba0e305b02d2}"/>
+    <object class="MixerBusEffectChain" id="{84921f2b-8fba-4d9a-9c63-8bcf2df8ef3e}"/>
+    <object class="MixerBusPanner" id="{5384c8bc-b1db-4f0b-a0e1-93ea45059881}"/>
+    <object class="MixerBusFader" id="{06c70d49-37aa-4bc7-97e5-c547ad145beb}"/>
+    <object class="MixerBusEffectChain" id="{606bf609-40e4-4814-840f-fffcf95e3c3b}"/>
+    <object class="MixerBusPanner" id="{a9c2e98e-2167-4600-8690-70955b86cead}"/>
+    <object class="MixerBusFader" id="{d8b384b5-7507-433e-8509-8f32424a1318}"/>
+    <object class="MixerBusFader" id="{1922c25f-e0d0-4370-978e-2413f36070ed}"/>
+</objects>

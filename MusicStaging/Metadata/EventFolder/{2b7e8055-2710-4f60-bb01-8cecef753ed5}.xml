@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.09.00">
+    <object class="EventFolder" id="{2b7e8055-2710-4f60-bb01-8cecef753ed5}">
+        <property name="name">
+            <value>AMAI Folk Sections</value>
+        </property>
+        <relationship name="folder">
+            <destination>{d17d047d-9768-4eb4-98c0-13de62f528cc}</destination>
+        </relationship>
+    </object>
+</objects>
