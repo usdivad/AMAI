@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.09.00">
+    <object class="AudioFile" id="{50788937-1e0b-40ca-86b9-e72bf19364a8}">
+        <property name="assetPath">
+            <value>72 pno hi Eb 2.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>3.3333333333333335</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{d3ce7628-40cb-419f-867a-f6eb2a1b0730}</destination>
+        </relationship>
+    </object>
+</objects>
