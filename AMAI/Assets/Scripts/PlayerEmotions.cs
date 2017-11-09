@@ -7,6 +7,8 @@ using System.Collections.Generic;
 
 public class PlayerEmotions : ImageResultsListener
 {
+	public FMODUnity.StudioEventEmitter emitter;
+
 	public float currentSmile;
 	public float currentInterocularDistance;
 	public float currentContempt;
@@ -15,6 +17,29 @@ public class PlayerEmotions : ImageResultsListener
 	public float currentFear;
 	public float currentSadness;
 	public FeaturePoint[] featurePointsList;
+
+	private int numFramesElapsed = 1;
+	private float overallValence = 0f;
+	private int sectionNum = 1;
+
+	void Start() {
+		emitter.SetParameter ("section_num", 1f);
+	}
+
+	void UpdateMusicEmitter() {
+		float currentValenceScaled = (currentValence + 100f) / 200f; 
+		overallValence = (overallValence * 0.7f) + (currentValenceScaled * 0.3f);
+		Debug.Log ("overall valence: " + overallValence);
+
+		emitter.SetParameter ("valence_overall", overallValence);
+		emitter.SetParameter ("arousal_overall", overallValence * 0.4f); // just testing
+
+		emitter.SetParameter ("section_num", (float) sectionNum);
+
+		if (overallValence > 0.5f && sectionNum < 2) {
+			sectionNum = 2;
+		}
+	}
 
 	public override void onFaceFound(float timestamp, int faceId)
 	{
@@ -54,5 +79,7 @@ public class PlayerEmotions : ImageResultsListener
 			featurePointsList = face.FeaturePoints;
 
 		}
+
+		UpdateMusicEmitter ();
 	}
 }
