@@ -19,7 +19,10 @@ public class PlayerEmotions : ImageResultsListener
 	public FeaturePoint[] featurePointsList;
 
 	private int numFramesElapsed = 1;
+	private int numImageResults = 0;
 	private float overallValence = 0f;
+	private float initialValence = 0f;
+	private int numDataPointsForInitialValence = 120;
 	private int sectionNum = 1;
 
 	void Start() {
@@ -27,18 +30,47 @@ public class PlayerEmotions : ImageResultsListener
 	}
 
 	void UpdateMusicEmitter() {
+		// Calculate overall valence (scaled 0-1)
 		float currentValenceScaled = (currentValence + 100f) / 200f; 
 		overallValence = (overallValence * 0.7f) + (currentValenceScaled * 0.3f);
 		Debug.Log ("overall valence: " + overallValence);
 
+		// Initial valence, if necessary
+		if (numImageResults <= numDataPointsForInitialValence) {
+			initialValence = overallValence;
+		}
+
+		// Difference between overall and initial valence
+		float overallInitialValenceDiff = overallValence - initialValence;
+		Debug.Log ("difference between overall and initial: " + overallInitialValenceDiff);
+
+		// Set section
+		bool shouldGoToNextSection = false;
+		shouldGoToNextSection = overallValence > 0.5f || overallInitialValenceDiff > 0.1f;
+		// TODO: Another one based on current timeline position
+
+		if (shouldGoToNextSection) {
+			if (sectionNum == 1) {
+				sectionNum = 2;
+			}
+			else if (sectionNum == 2) {
+				sectionNum = 4;
+			}
+			else if (sectionNum == 4) {
+				sectionNum = 5;
+			}
+			else if (sectionNum == 5) {
+				sectionNum = 6;
+			}
+			else {
+				sectionNum = 7;
+			}
+		}
+
+		// Update music emitter
 		emitter.SetParameter ("valence_overall", overallValence);
 		emitter.SetParameter ("arousal_overall", overallValence * 0.4f); // just testing
-
 		emitter.SetParameter ("section_num", (float) sectionNum);
-
-		if (overallValence > 0.5f && sectionNum < 2) {
-			sectionNum = 2;
-		}
 	}
 
 	public override void onFaceFound(float timestamp, int faceId)
@@ -81,5 +113,6 @@ public class PlayerEmotions : ImageResultsListener
 		}
 
 		UpdateMusicEmitter ();
+		numImageResults++;
 	}
 }
