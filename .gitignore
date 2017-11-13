@@ -1,6 +1,7 @@
 *.wav
 *.mp3
 .DS_Store
+*.log
 
 AMAI/Assets/Affdex
 AMAI/Assets/StreamingAssets/affdex-data-3
