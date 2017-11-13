@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.09.00">
+    <object class="AudioFile" id="{dbf750a5-69c4-4369-bf78-645f96d40d3b}">
+        <property name="assetPath">
+            <value>76 gtr Db 4.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>3.1579138321995464</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{d3ce7628-40cb-419f-867a-f6eb2a1b0730}</destination>
+        </relationship>
+    </object>
+</objects>
