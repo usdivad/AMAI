@@ -26,7 +26,7 @@
 [LOG] SystemI::init                            : create the stream thread
 [LOG] Thread::initThread                       : Init FMOD stream thread. Priority: 2, Stack Size: 65536, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Priority: 3, Stack Size: 49152, Semaphore: Yes, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 0x12c995208 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 0x13f2ec408 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -34,20 +34,699 @@
 [LOG] Thread::initThread                       : Init FMOD Studio bank load thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] Manager::init                            : done.
 [LOG] Manager::readBank                        : fileversion = 88, compatVersion = 86 (oldest = 44, newest = 88)
+[LOG] SystemI::mixerSuspend                    : Suspending output.
+[LOG] SystemI::mixerResume                     : Resuming output.
 [LOG] Manager::readBank                        : fileversion = 88, compatVersion = 86 (oldest = 44, newest = 88)
 [LOG] Manager::readBank                        : fileversion = 88, compatVersion = 86 (oldest = 44, newest = 88)
 [LOG] Manager::readBank                        : fileversion = 88, compatVersion = 86 (oldest = 44, newest = 88)
 [LOG] Manager::readBank                        : fileversion = 88, compatVersion = 86 (oldest = 44, newest = 88)
 [LOG] Manager::readBank                        : fileversion = 88, compatVersion = 86 (oldest = 44, newest = 88)
 [LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
-[LOG] Manager::readBank                        : fileversion = 88, compatVersion = 86 (oldest = 44, newest = 88)
-[LOG] Manager::readBank                        : fileversion = 88, compatVersion = 86 (oldest = 44, newest = 88)
-[LOG] Manager::readBank                        : fileversion = 88, compatVersion = 86 (oldest = 44, newest = 88)
-[LOG] Manager::readBank                        : fileversion = 88, compatVersion = 86 (oldest = 44, newest = 88)
-[LOG] Manager::readBank                        : fileversion = 88, compatVersion = 86 (oldest = 44, newest = 88)
-[LOG] Manager::readBank                        : fileversion = 88, compatVersion = 86 (oldest = 44, newest = 88)
-[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
+[LOG] SystemI::createSound                     : filename = /Users/usdivad/Documents/columbia_4/gradApps/schools/mit/courses_1/affective_computing/amai/MusicStaging/Build/Desktop/Master Bank.bank : mode 02012082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0x13e06ea68 : node = 0x13e06ad00
+[LOG] SystemI::createSound                     : add node to async list : head = 0x1448b6438.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x13e06ea68
+[LOG] SystemI::createSoundInternal             :     filename = /Users/usdivad/Documents/columbia_4/gradApps/schools/mit/courses_1/affective_computing/amai/MusicStaging/Build/Desktop/Master Bank.bank : mode 02012082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 10323648
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 172224
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x13e06ae18
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESTREAM
+[LOG] System::createSoundInternal              :     decode buffersize = 19200 : blocksize = 256 : format = 2
+[LOG] SystemI::createSample                    :     mode 02012082 length 19200 samples, lengthbytes 136032
+[LOG] SystemI::createSample                    :     channels = 2
+[LOG] SystemI::createSample                    :     output = 0x144c8e918
+[LOG] OutputSoftware::createSample             :     lengthpcm 19200, lengthbytes 136032, channels 2, format 2, freq 48000, mode 0201208a
+[LOG] System::createSoundInternal              :     1 subsounds detected.
+[LOG] System::createSoundInternal              :     Seek stream to start
+[LOG] System::createSoundInternal              :     switch file handle from small blocking single buffered to large nonblocking doublebuffered.
+[LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x13e06ea68
+[LOG] SoundI::getSubSound                      : sound 0x13e06ea68.  Subsound index 0 / 1
+[LOG] SoundI::getSubSound                      : starting non blocking seek and setting sound to not ready state
+[LOG] SoundI::getSubSound                      : finished preparing nonblocking getSubSound seek
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x13e065858
+[LOG] AsyncThread::threadFunc                  :     done setposition
+[LOG] AsyncThread::threadFunc                  :     done flush
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x13e065858
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x13e065858
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x13e065858
+[LOG] SoundI::release                          : 72 vibes a end 4 (0x13e06ea68)
+[LOG] SoundI::release                          : remove stream samples. (0x13e06ea68)
+[LOG] SoundI::release                          :     72 vibes a end 4 (0x144cf2738)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release subsounds. (0x13e06ea68)
+[LOG] SoundI::release                          :     72 vibes a end 4 (0x13e065858)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e06ea68)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x10e452a28)
+[LOG] SoundI::release                          : release subsounds. (0x10e452a28)
+[LOG] SoundI::release                          :     76 gtr Eb 4 (0x10e452b98)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x10e452a28)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7c6268)
+[LOG] SoundI::release                          : release subsounds. (0x13e7c6268)
+[LOG] SoundI::release                          :     76 gtr Eb 3 (0x13e7c63d8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7c6268)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x144c9d3e8)
+[LOG] SoundI::release                          : release subsounds. (0x144c9d3e8)
+[LOG] SoundI::release                          :     72 vibes b end 5 (0x144c9d558)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x144c9d3e8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7c9148)
+[LOG] SoundI::release                          : release subsounds. (0x13e7c9148)
+[LOG] SoundI::release                          :     72 vibes b end 4 (0x13e7c92b8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7c9148)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x144c75368)
+[LOG] SoundI::release                          : release subsounds. (0x144c75368)
+[LOG] SoundI::release                          :     72 vibes b end 3 (0x144c754d8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x144c75368)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7cf868)
+[LOG] SoundI::release                          : release subsounds. (0x13e7cf868)
+[LOG] SoundI::release                          :     72 vibes b end 2 (0x144c9d0a8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7cf868)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7c7078)
+[LOG] SoundI::release                          : release subsounds. (0x13e7c7078)
+[LOG] SoundI::release                          :     72 vibes b end 1 (0x13e7c71e8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7c7078)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x144c5ebf8)
+[LOG] SoundI::release                          : release subsounds. (0x144c5ebf8)
+[LOG] SoundI::release                          :     72 vibes b base 4 (0x144c5ed68)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x144c5ebf8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7b7688)
+[LOG] SoundI::release                          : release subsounds. (0x13e7b7688)
+[LOG] SoundI::release                          :     72 vibes b base 3 (0x13e7b77f8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7b7688)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7dabf8)
+[LOG] SoundI::release                          : release subsounds. (0x13e7dabf8)
+[LOG] SoundI::release                          :     72 vibes b base 1 (0x13e76d388)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7dabf8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7da748)
+[LOG] SoundI::release                          : release subsounds. (0x13e7da748)
+[LOG] SoundI::release                          :     72 pno hi Db 4 (0x13e7da8b8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7da748)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x144c4ccc8)
+[LOG] SoundI::release                          : release subsounds. (0x144c4ccc8)
+[LOG] SoundI::release                          :     72 pno hi Db 2 (0x144c4ce38)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x144c4ccc8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x10e453388)
+[LOG] SoundI::release                          : release subsounds. (0x10e453388)
+[LOG] SoundI::release                          :     72 pno hi Db 1 (0x10e4534f8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x10e453388)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x144cd91e8)
+[LOG] SoundI::release                          : release subsounds. (0x144cd91e8)
+[LOG] SoundI::release                          :     72 pno hi Eb 3 (0x144cd9358)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x144cd91e8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x144c75cc8)
+[LOG] SoundI::release                          : release subsounds. (0x144c75cc8)
+[LOG] SoundI::release                          :     72 pno hi Eb 2 (0x144c75e38)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x144c75cc8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7c4738)
+[LOG] SoundI::release                          : release subsounds. (0x13e7c4738)
+[LOG] SoundI::release                          :     72 pno hi Eb 1 (0x13e7c48a8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7c4738)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7cb6c8)
+[LOG] SoundI::release                          : release subsounds. (0x13e7cb6c8)
+[LOG] SoundI::release                          :     76 gtr Db 4 (0x13e7cb838)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7cb6c8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7add18)
+[LOG] SoundI::release                          : release subsounds. (0x13e7add18)
+[LOG] SoundI::release                          :     76 gtr Db 3 (0x13e7ade88)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7add18)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x144c4ba08)
+[LOG] SoundI::release                          : release subsounds. (0x144c4ba08)
+[LOG] SoundI::release                          :     76 cello Eb 3 (0x144c4bb78)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x144c4ba08)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x144cd83d8)
+[LOG] SoundI::release                          : release subsounds. (0x144cd83d8)
+[LOG] SoundI::release                          :     76 cello Eb 2 (0x144cd8548)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x144cd83d8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7cc028)
+[LOG] SoundI::release                          : release subsounds. (0x13e7cc028)
+[LOG] SoundI::release                          :     76 cello Eb 1 (0x13e7cc198)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7cc028)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x144c9c858)
+[LOG] SoundI::release                          : release subsounds. (0x144c9c858)
+[LOG] SoundI::release                          :     76 pno hi Db 4 (0x144c9c9c8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x144c9c858)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7abc48)
+[LOG] SoundI::release                          : release subsounds. (0x13e7abc48)
+[LOG] SoundI::release                          :     76 pno hi Db 3 (0x13e7abdb8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7abc48)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x144cd9b48)
+[LOG] SoundI::release                          : release subsounds. (0x144cd9b48)
+[LOG] SoundI::release                          :     76 pno hi Db 2 (0x144cd9cb8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x144cd9b48)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e76e028)
+[LOG] SoundI::release                          : release subsounds. (0x13e76e028)
+[LOG] SoundI::release                          :     76 pno hi Db 1 (0x13e76e198)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e76e028)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7ce5a8)
+[LOG] SoundI::release                          : release subsounds. (0x13e7ce5a8)
+[LOG] SoundI::release                          :     72 cello Fm 3 (0x13e7ce718)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7ce5a8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x144cac7c8)
+[LOG] SoundI::release                          : release subsounds. (0x144cac7c8)
+[LOG] SoundI::release                          :     72 cello Fm 2 (0x144c56e08)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x144cac7c8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7c9aa8)
+[LOG] SoundI::release                          : release subsounds. (0x13e7c9aa8)
+[LOG] SoundI::release                          :     76 pno bass Eb (0x13e7c9c18)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7c9aa8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7c6718)
+[LOG] SoundI::release                          : release subsounds. (0x13e7c6718)
+[LOG] SoundI::release                          :     72 gtr Db 4 (0x13e7c6888)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7c6718)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x144c740a8)
+[LOG] SoundI::release                          : release subsounds. (0x144c740a8)
+[LOG] SoundI::release                          :     72 gtr Db 3 (0x144c74218)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x144c740a8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x10e452578)
+[LOG] SoundI::release                          : release subsounds. (0x10e452578)
+[LOG] SoundI::release                          :     72 gtr Db 1 (0x10e4526e8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x10e452578)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x144cd8d38)
+[LOG] SoundI::release                          : release subsounds. (0x144cd8d38)
+[LOG] SoundI::release                          :     76 vibes b base 4 (0x144cd8ea8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x144cd8d38)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7aae38)
+[LOG] SoundI::release                          : release subsounds. (0x13e7aae38)
+[LOG] SoundI::release                          :     76 vibes b base 3 (0x13e7aafa8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7aae38)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7cd2e8)
+[LOG] SoundI::release                          : release subsounds. (0x13e7cd2e8)
+[LOG] SoundI::release                          :     76 vibes b base 2 (0x13e7cd458)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7cd2e8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x144cd7f28)
+[LOG] SoundI::release                          : release subsounds. (0x144cd7f28)
+[LOG] SoundI::release                          :     76 vibes b base 1 (0x144cd8098)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x144cd7f28)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x144c74eb8)
+[LOG] SoundI::release                          : release subsounds. (0x144c74eb8)
+[LOG] SoundI::release                          :     72 pno bass Db (0x144c75028)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x144c74eb8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7cea58)
+[LOG] SoundI::release                          : release subsounds. (0x13e7cea58)
+[LOG] SoundI::release                          :     72 gtr Eb 4 (0x13e7cebc8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7cea58)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e733848)
+[LOG] SoundI::release                          : release subsounds. (0x13e733848)
+[LOG] SoundI::release                          :     72 gtr Eb 3 (0x13e7339b8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e733848)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7c79d8)
+[LOG] SoundI::release                          : release subsounds. (0x13e7c79d8)
+[LOG] SoundI::release                          :     76 kick 4 beats (0x13e7c7b48)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7c79d8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7ca408)
+[LOG] SoundI::release                          : release subsounds. (0x13e7ca408)
+[LOG] SoundI::release                          :     72 pno hi Fm 3 (0x13e7ca578)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7ca408)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7ce0f8)
+[LOG] SoundI::release                          : release subsounds. (0x13e7ce0f8)
+[LOG] SoundI::release                          :     72 pno hi Fm 2 (0x13e7ce268)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7ce0f8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7cb218)
+[LOG] SoundI::release                          : release subsounds. (0x13e7cb218)
+[LOG] SoundI::release                          :     72 pno hi Fm 1 (0x13e7cb388)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7cb218)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7cdc48)
+[LOG] SoundI::release                          : release subsounds. (0x13e7cdc48)
+[LOG] SoundI::release                          :     72 vibes a base (0x13e7cddb8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7cdc48)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x144cd9698)
+[LOG] SoundI::release                          : release subsounds. (0x144cd9698)
+[LOG] SoundI::release                          :     76 kick hh 4 beats (0x144cd9808)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x144cd9698)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7ae1c8)
+[LOG] SoundI::release                          : release subsounds. (0x13e7ae1c8)
+[LOG] SoundI::release                          :     76 pno hi Ab 3 (0x13e7ae338)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7ae1c8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7c6bc8)
+[LOG] SoundI::release                          : release subsounds. (0x13e7c6bc8)
+[LOG] SoundI::release                          :     76 pno hi Ab 2 (0x13e7c6d38)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7c6bc8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7b71d8)
+[LOG] SoundI::release                          : release subsounds. (0x13e7b71d8)
+[LOG] SoundI::release                          :     76 pno hi Ab 1 (0x13e7b7348)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7b71d8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x144cd75c8)
+[LOG] SoundI::release                          : release subsounds. (0x144cd75c8)
+[LOG] SoundI::release                          :     76 vibes b end 5 (0x144cd7738)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x144cd75c8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7b7b38)
+[LOG] SoundI::release                          : release subsounds. (0x13e7b7b38)
+[LOG] SoundI::release                          :     76 vibes b end 4 (0x13e7b7ca8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7b7b38)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7b5e58)
+[LOG] SoundI::release                          : release subsounds. (0x13e7b5e58)
+[LOG] SoundI::release                          :     76 vibes b end 3 (0x13e7b5fc8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7b5e58)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x144c75818)
+[LOG] SoundI::release                          : release subsounds. (0x144c75818)
+[LOG] SoundI::release                          :     76 vibes b end 2 (0x144c75988)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x144c75818)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7cce38)
+[LOG] SoundI::release                          : release subsounds. (0x13e7cce38)
+[LOG] SoundI::release                          :     76 vibes b end 1 (0x13e7ccfa8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7cce38)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x144c4c368)
+[LOG] SoundI::release                          : release subsounds. (0x144c4c368)
+[LOG] SoundI::release                          :     72 vibes a end 3 (0x144c4c4d8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x144c4c368)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x144c4beb8)
+[LOG] SoundI::release                          : release subsounds. (0x144c4beb8)
+[LOG] SoundI::release                          :     72 vibes a end 1 (0x144c4c028)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x144c4beb8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7ac0f8)
+[LOG] SoundI::release                          : release subsounds. (0x13e7ac0f8)
+[LOG] SoundI::release                          :     72 vibes a end 2 (0x13e7ac268)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7ac0f8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7cad68)
+[LOG] SoundI::release                          : release subsounds. (0x13e7cad68)
+[LOG] SoundI::release                          :     72 gtr Eb 2 (0x13e7caed8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7cad68)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e715b08)
+[LOG] SoundI::release                          : release subsounds. (0x13e715b08)
+[LOG] SoundI::release                          :     72 gtr Eb 1 (0x13e715c78)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e715b08)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7c9f58)
+[LOG] SoundI::release                          : release subsounds. (0x13e7c9f58)
+[LOG] SoundI::release                          :     76 gtr Ab 4 (0x13e7ca0c8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7c9f58)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7cbb78)
+[LOG] SoundI::release                          : release subsounds. (0x13e7cbb78)
+[LOG] SoundI::release                          :     76 gtr Ab 3 (0x13e7cbce8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7cbb78)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x144cd7a78)
+[LOG] SoundI::release                          : release subsounds. (0x144cd7a78)
+[LOG] SoundI::release                          :     76 cello Ab 3 (0x144cd7be8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x144cd7a78)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7cc4d8)
+[LOG] SoundI::release                          : release subsounds. (0x13e7cc4d8)
+[LOG] SoundI::release                          :     76 cello Ab 2 (0x13e7cc648)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7cc4d8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7ae678)
+[LOG] SoundI::release                          : release subsounds. (0x13e7ae678)
+[LOG] SoundI::release                          :     76 cello Ab 1 (0x13e7ae7e8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7ae678)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7c4be8)
+[LOG] SoundI::release                          : release subsounds. (0x13e7c4be8)
+[LOG] SoundI::release                          :     72 pno bass Fm (0x13e7c4d58)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7c4be8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7cc988)
+[LOG] SoundI::release                          : release subsounds. (0x13e7cc988)
+[LOG] SoundI::release                          :     72 kick 4 beats (0x13e7ccaf8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7cc988)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e76d6c8)
+[LOG] SoundI::release                          : release subsounds. (0x13e76d6c8)
+[LOG] SoundI::release                          :     76 pno bass Db (0x13e76d838)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e76d6c8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x144c5f0a8)
+[LOG] SoundI::release                          : release subsounds. (0x144c5f0a8)
+[LOG] SoundI::release                          :     76 pno hi Eb 3 (0x13e7c43f8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x144c5f0a8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x144c76178)
+[LOG] SoundI::release                          : release subsounds. (0x144c76178)
+[LOG] SoundI::release                          :     76 pno hi Eb 2 (0x144c762e8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x144c76178)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7cd798)
+[LOG] SoundI::release                          : release subsounds. (0x13e7cd798)
+[LOG] SoundI::release                          :     76 pno hi Eb 1 (0x13e7cd908)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7cd798)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7acf08)
+[LOG] SoundI::release                          : release subsounds. (0x13e7acf08)
+[LOG] SoundI::release                          :     72 gtr Fm 4 (0x13e7ad078)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7acf08)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x144c74a08)
+[LOG] SoundI::release                          : release subsounds. (0x144c74a08)
+[LOG] SoundI::release                          :     72 gtr Fm 3 (0x144c74b78)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x144c74a08)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7ac5a8)
+[LOG] SoundI::release                          : release subsounds. (0x13e7ac5a8)
+[LOG] SoundI::release                          :     76 vibes a end 3 (0x13e7ac718)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7ac5a8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7ab798)
+[LOG] SoundI::release                          : release subsounds. (0x13e7ab798)
+[LOG] SoundI::release                          :     76 vibes a end 2 (0x13e7ab908)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7ab798)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x144c9d898)
+[LOG] SoundI::release                          : release subsounds. (0x144c9d898)
+[LOG] SoundI::release                          :     76 vibes a end 1 (0x13e7da408)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x144c9d898)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x144c74558)
+[LOG] SoundI::release                          : release subsounds. (0x144c74558)
+[LOG] SoundI::release                          :     72 gtr Ab 4 (0x144c746c8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x144c74558)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7ca8b8)
+[LOG] SoundI::release                          : release subsounds. (0x13e7ca8b8)
+[LOG] SoundI::release                          :     72 gtr Ab 3 (0x13e7caa28)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7ca8b8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x10e4520c8)
+[LOG] SoundI::release                          : release subsounds. (0x10e4520c8)
+[LOG] SoundI::release                          :     72 gtr Ab 2 (0x10e452238)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x10e4520c8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x144cd9ff8)
+[LOG] SoundI::release                          : release subsounds. (0x144cd9ff8)
+[LOG] SoundI::release                          :     72 gtr Ab 1 (0x144cda168)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x144cd9ff8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x144c4cfc8)
+[LOG] SoundI::release                          : release subsounds. (0x144c4cfc8)
+[LOG] SoundI::release                          :     76 kick 2 beats (0x10e4518d8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x144c4cfc8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x144c9c3a8)
+[LOG] SoundI::release                          : release subsounds. (0x144c9c3a8)
+[LOG] SoundI::release                          :     76 vibes a base (0x144c9c518)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x144c9c3a8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7aca58)
+[LOG] SoundI::release                          : release subsounds. (0x13e7aca58)
+[LOG] SoundI::release                          :     76 pno bass Ab (0x13e7acbc8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7aca58)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7ab2e8)
+[LOG] SoundI::release                          : release subsounds. (0x13e7ab2e8)
+[LOG] SoundI::release                          :     72 cello Eb 3 (0x13e7ab458)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7ab2e8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7c8338)
+[LOG] SoundI::release                          : release subsounds. (0x13e7c8338)
+[LOG] SoundI::release                          :     72 cello Eb 2 (0x13e7c84a8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7c8338)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7aeb28)
+[LOG] SoundI::release                          : release subsounds. (0x13e7aeb28)
+[LOG] SoundI::release                          :     72 gtr Fm 2 (0x144c9c068)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7aeb28)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7ad868)
+[LOG] SoundI::release                          : release subsounds. (0x13e7ad868)
+[LOG] SoundI::release                          :     72 gtr Fm 1 (0x13e7ad9d8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7ad868)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7933c8)
+[LOG] SoundI::release                          : release subsounds. (0x13e7933c8)
+[LOG] SoundI::release                          :     76 cello Db a 3 (0x13e793538)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7933c8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7c5098)
+[LOG] SoundI::release                          : release subsounds. (0x13e7c5098)
+[LOG] SoundI::release                          :     76 cello Db a 2 (0x13e7c5f28)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7c5098)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7c7528)
+[LOG] SoundI::release                          : release subsounds. (0x13e7c7528)
+[LOG] SoundI::release                          :     76 cello Db a 1 (0x13e7c7698)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7c7528)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x10e452ed8)
+[LOG] SoundI::release                          : release subsounds. (0x10e452ed8)
+[LOG] SoundI::release                          :     76 cello Db b 3 (0x10e453048)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x10e452ed8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x144cac318)
+[LOG] SoundI::release                          : release subsounds. (0x144cac318)
+[LOG] SoundI::release                          :     76 cello Db b 2 (0x144cac488)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x144cac318)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7cf3b8)
+[LOG] SoundI::release                          : release subsounds. (0x13e7cf3b8)
+[LOG] SoundI::release                          :     76 cello Db b 1 (0x13e7cf528)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7cf3b8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x10e4f5508)
+[LOG] SoundI::release                          : release subsounds. (0x10e4f5508)
+[LOG] SoundI::release                          :     72 kick 2 beats (0x10e4f5678)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x10e4f5508)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x144cda4a8)
+[LOG] SoundI::release                          : release subsounds. (0x144cda4a8)
+[LOG] SoundI::release                          :     72 cello Db a 1 (0x144cda618)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x144cda4a8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7ad3b8)
+[LOG] SoundI::release                          : release subsounds. (0x13e7ad3b8)
+[LOG] SoundI::release                          :     72 cello Db a 2 (0x13e7ad528)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7ad3b8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7cef08)
+[LOG] SoundI::release                          : release subsounds. (0x13e7cef08)
+[LOG] SoundI::release                          :     72 cello Db a 3 (0x13e7cf078)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7cef08)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x144c76628)
+[LOG] SoundI::release                          : release subsounds. (0x144c76628)
+[LOG] SoundI::release                          :     72 cello Db b 3 (0x144c76798)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x144c76628)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x144c4c818)
+[LOG] SoundI::release                          : release subsounds. (0x144c4c818)
+[LOG] SoundI::release                          :     72 cello Db b 2 (0x144c4c988)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x144c4c818)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7c7e88)
+[LOG] SoundI::release                          : release subsounds. (0x13e7c7e88)
+[LOG] SoundI::release                          :     72 cello Db b 1 (0x13e7c7ff8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7c7e88)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7b7fe8)
+[LOG] SoundI::release                          : release subsounds. (0x13e7b7fe8)
+[LOG] SoundI::release                          :     72 pno bass Ab (0x13e7b8158)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7b7fe8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x10e451c18)
+[LOG] SoundI::release                          : release subsounds. (0x10e451c18)
+[LOG] SoundI::release                          :     76 kick hh 2 beats (0x10e451d88)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x10e451c18)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x144cd8888)
+[LOG] SoundI::release                          : release subsounds. (0x144cd8888)
+[LOG] SoundI::release                          :     76 ending (0x144cd89f8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x144cd8888)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7c87e8)
+[LOG] SoundI::release                          : release subsounds. (0x13e7c87e8)
+[LOG] SoundI::release                          :     72 cello Fm 1 (0x13e7c8958)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7c87e8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7b59a8)
+[LOG] SoundI::release                          : release subsounds. (0x13e7b59a8)
+[LOG] SoundI::release                          :     72 vibes b base 2 (0x13e7b5b18)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7b59a8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e76db78)
+[LOG] SoundI::release                          : release subsounds. (0x13e76db78)
+[LOG] SoundI::release                          :     72 pno bass Eb (0x13e76dce8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e76db78)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7c8c98)
+[LOG] SoundI::release                          : release subsounds. (0x13e7c8c98)
+[LOG] SoundI::release                          :     72 cello Eb 1 (0x13e7c8e08)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7c8c98)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e7c95f8)
+[LOG] SoundI::release                          : release subsounds. (0x13e7c95f8)
+[LOG] SoundI::release                          :     72 gtr Db 2 (0x13e7c9768)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e7c95f8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x13e715fb8)
+[LOG] SoundI::release                          : release subsounds. (0x13e715fb8)
+[LOG] SoundI::release                          :     72 pno hi Db 3 (0x13e7e15d8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x13e715fb8)
+[LOG] SoundI::release                          : done
+[LOG] Thread::callback                         : FMOD Studio update thread finished.
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] LiveUpdate::clientDisconnected           : client = 0x153e9ea08
+[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
 [LOG] Thread::callback                         : FMOD Studio sample load thread finished.
 [LOG] LiveUpdate::release                      : 
 [LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
@@ -63,4 +742,10 @@
 [LOG] SystemI::close                           : Free channel pool.
 [LOG] SystemI::close                           : done.
 
-[LOG] System::create                           : Header version = 1.09.06. Current version = 1.09.06.
+[LOG] Manager::readBank                        : fileversion = 88, compatVersion = 86 (oldest = 44, newest = 88)
+[LOG] Manager::readBank                        : fileversion = 88, compatVersion = 86 (oldest = 44, newest = 88)
+[LOG] Manager::readBank                        : fileversion = 88, compatVersion = 86 (oldest = 44, newest = 88)
+[LOG] Manager::readBank                        : fileversion = 88, compatVersion = 86 (oldest = 44, newest = 88)
+[LOG] Manager::readBank                        : fileversion = 88, compatVersion = 86 (oldest = 44, newest = 88)
+[LOG] Manager::readBank                        : fileversion = 88, compatVersion = 86 (oldest = 44, newest = 88)
+[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
