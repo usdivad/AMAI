@@ -19,8 +19,23 @@ MonoBehaviour:
   - {fileID: 114030700497067614}
   MasterBankRef: {fileID: 114508137195417946}
   StringsBankRef: {fileID: 114769020719998676}
-  stringsBankWriteTime: 636458297550000000
+  stringsBankWriteTime: 636461888050000000
   cacheVersion: 2
+--- !u!114 &114007470021881564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: section_num
+  Min: 0
+  Max: 8
+  Default: 0
 --- !u!114 &114030700497067614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40,11 +55,11 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 114673912830300950}
-  - {fileID: 114789985391632022}
-  - {fileID: 114302298704485088}
-  - {fileID: 114262011763933018}
-  - {fileID: 114088076753820304}
+  - {fileID: 114227613355224704}
+  - {fileID: 114554032671355660}
+  - {fileID: 114601200736931736}
+  - {fileID: 114357090380141454}
+  - {fileID: 114590729776236568}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &114052652533524430
@@ -66,6 +81,21 @@ MonoBehaviour:
   - Name: Desktop
     Value: 12192
   Exists: 1
+--- !u!114 &114082076596581888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: arousal_overall
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114088076753820304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,6 +112,111 @@ MonoBehaviour:
   Max: 1
   Default: 0
 --- !u!114 &114105615043177272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: valence_recent
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114121473153680576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: arousal_overall
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114124873502677996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: valence_recent
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114138303265851358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: valence_overall
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114151136249948234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: valence_overall
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114151459484918376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: valence_overall
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114155087262053450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: valence_recent
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114162190455845272
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -115,6 +250,36 @@ MonoBehaviour:
   - Name: Desktop
     Value: 638
   Exists: 1
+--- !u!114 &114197275835304402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: valence_recent
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114227613355224704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: section_num
+  Min: 0
+  Max: 8
+  Default: 0
 --- !u!114 &114262011763933018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,8 +314,8 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 114105615043177272}
-  - {fileID: 114946935390114440}
+  - {fileID: 114162190455845272}
+  - {fileID: 114639622579485432}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &114302298704485088
@@ -168,6 +333,111 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114344345160088626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: valence_overall
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114357090380141454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: valence_overall
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114365949315258818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: arousal_overall
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114426924008484146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: section_num
+  Min: 0
+  Max: 8
+  Default: 0
+--- !u!114 &114447099062733386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: valence_recent
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114457550108736332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: arousal_recent
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114474799966362040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: arousal_recent
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114508137195417946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,12 +451,132 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: /Users/usdivad/Documents/columbia_4/gradApps/schools/mit/courses_1/affective_computing/amai/MusicStaging/Build/Desktop/Master
     Bank.bank
-  lastModified: 636458297550000000
+  lastModified: 636461888050000000
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 7601216
+    Value: 10495872
   Exists: 1
+--- !u!114 &114511038672264334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: valence_recent
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114554032671355660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: arousal_recent
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114554289483553794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: valence_overall
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114590729776236568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: valence_recent
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114601200736931736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: arousal_overall
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114612131360530296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: valence_recent
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114639622579485432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: valence_overall
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114650152403653536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: section_num
+  Min: 0
+  Max: 8
+  Default: 0
 --- !u!114 &114673912830300950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,6 +592,21 @@ MonoBehaviour:
   Min: 0
   Max: 7
   Default: 0
+--- !u!114 &114730342326270116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: valence_overall
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114769020719998676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,13 +620,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: /Users/usdivad/Documents/columbia_4/gradApps/schools/mit/courses_1/affective_computing/amai/MusicStaging/Build/Desktop/Master
     Bank.strings.bank
-  lastModified: 636458297550000000
+  lastModified: 636461888050000000
   LoadResult: 0
   FileSizes:
   - Name: Desktop
     Value: 736
   Exists: 1
 --- !u!114 &114789985391632022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: arousal_recent
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114851715772632922
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}

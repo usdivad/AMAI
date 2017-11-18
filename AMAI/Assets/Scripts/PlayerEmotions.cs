@@ -46,7 +46,7 @@ public class PlayerEmotions : ImageResultsListener
 
 		// Set section
 		bool shouldGoToNextSection = false;
-		shouldGoToNextSection = overallValence > 0.5f || overallInitialValenceDiff > 0.1f;
+		shouldGoToNextSection = overallValence > 0.5f || overallInitialValenceDiff > 0.1f; // Actually, this *is* basically looking for peaks
 		// TODO: Another one based on current timeline position
 
 		if (shouldGoToNextSection) {
