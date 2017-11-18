@@ -272,6 +272,18 @@ namespace FMODUnity
                 return (playbackState != FMOD.Studio.PLAYBACK_STATE.STOPPED);
             }
             return false;
-        }        
+        }
+
+		public FMOD.Studio.EventInstance GetInstance() {
+			return instance;
+		}
+
+		public void GetTimelinePosition(out int position) {
+			if (instance != null) {
+				instance.getTimelinePosition (out position);
+				return;
+			}
+			position = 0;
+		}	
     }
 }
