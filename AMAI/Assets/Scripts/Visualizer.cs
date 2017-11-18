@@ -2,7 +2,7 @@
 using UnityEngine;
 using System.Runtime.InteropServices;
 
-class Visualizer : MonoBehaviour
+public class Visualizer : MonoBehaviour
 {
 	public FMODUnity.StudioEventEmitter emitter;
 
