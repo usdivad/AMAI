@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class AMAIManager : MonoBehaviour {
 
 	public FMODUnity.StudioEventEmitter emitter;
-	public Visualizer visualizer;
+	public Visualizer visualizerPrefab;
+	public Visualizer visualizerInstance;
 	public Text[] texts;
 	public Canvas canvas;
 	public Button continueButton;
@@ -17,6 +18,8 @@ public class AMAIManager : MonoBehaviour {
 	private bool hasStartedStage2 = false;
 	private bool hasStartedStage4 = false;
 	private bool hasStartedStage6 = false;
+
+	private float musicMaxDur = 5.1f;
 
 	// Use this for initialization
 	void Start () {
@@ -61,7 +64,7 @@ public class AMAIManager : MonoBehaviour {
 			break;
 		case 7:
 			texts [6].enabled = true;
-			//continueButton.enabled = false;
+			//continueButton.gameObject.SetActive(false);
 			break;
 		}
 
@@ -90,18 +93,45 @@ public class AMAIManager : MonoBehaviour {
 			break;
 		case 4:
 			// Listen to music
-			emitter.Play ();
+			StartMusicEmitter();
 			break;
 		case 6:
 			// Listen to music with visualizations
+			StartMusicEmitter ();
+			StartVisualizer ();
 			break;
 		}
+	}
+
+	void StartMusicEmitter() {
+		emitter.SetParameter("sectionNum", 1f); // Reset
+		emitter.Play ();
+
+		canvas.enabled = false;
+
+		Invoke ("StopMusicEmitter", musicMaxDur);
+	}
+
+	void StopMusicEmitter() {
+		emitter.Stop ();
+		canvas.enabled = true;
+		continueButton.gameObject.SetActive(true);
+		HandleContinueButtonClick ();
+	}
+
+	void StartVisualizer() {
+		//visualizer.Begin ();
+		visualizerInstance = Instantiate(visualizerPrefab);
 	}
 
 	public void HandleContinueButtonClick() {
 		Debug.Log ("button clicked");
 		if (stage < texts.Length) {
 			stage++;
+		}
+
+		if (emitter.IsPlaying()) {
+			emitter.Stop ();
 		}
 	}
 
@@ -111,5 +141,6 @@ public class AMAIManager : MonoBehaviour {
 		// Enable continue button
 		oasisImage.gameObject.SetActive(false);
 		continueButton.gameObject.SetActive(true);
+		HandleContinueButtonClick ();
 	}
 }

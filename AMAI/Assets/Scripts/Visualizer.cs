@@ -13,6 +13,8 @@ public class Visualizer : MonoBehaviour
 
 	const int WindowSize = 1024;
 
+	bool hasBegun = false;
+
 	void Start()
 	{        
 		lineRenderer = gameObject.AddComponent<LineRenderer>();
@@ -24,6 +26,10 @@ public class Visualizer : MonoBehaviour
 		//int instanceID = emitter.GetInstanceID();
 		//musicInstance = FMODUnity.RuntimeManager.StudioSystem.getEventByID(instanceID);
 
+		if (emitter == null) {
+			emitter = GameObject.Find ("Music Emitter").GetComponent<FMODUnity.StudioEventEmitter> ();
+		}
+
 		musicInstance = emitter.GetInstance();
 
 		FMODUnity.RuntimeManager.LowlevelSystem.createDSPByType(FMOD.DSP_TYPE.FFT, out fft);
@@ -34,10 +40,7 @@ public class Visualizer : MonoBehaviour
 		FMODUnity.RuntimeManager.LowlevelSystem.getMasterChannelGroup(out channelGroup);
 		channelGroup.addDSP(FMOD.CHANNELCONTROL_DSP_INDEX.HEAD, fft);
 
-		if (musicInstance == null) {
-			musicInstance = emitter.GetInstance();
-			//musicInstance.start();
-		}
+		musicInstance.start ();
 	}
 
 	const float WIDTH = 10.0f;
@@ -45,10 +48,14 @@ public class Visualizer : MonoBehaviour
 
 	void Update()
 	{
-		if (musicInstance == null) {
-			musicInstance = emitter.GetInstance();
-			//musicInstance.start();
-		}
+//		if (!hasBegun) {
+//			return;
+//		}
+
+//		if (musicInstance == null) {
+//			musicInstance = emitter.GetInstance();
+//			//musicInstance.start();
+//		}
 
 		IntPtr unmanagedData;
 		uint length;
@@ -76,5 +83,18 @@ public class Visualizer : MonoBehaviour
 	float lin2dB(float linear)
 	{
 		return Mathf.Clamp(Mathf.Log10(linear) * 20.0f, -80.0f, 0.0f);
+	}
+
+	public void Begin() {
+		hasBegun = true;
+//		if (musicInstance == null) {
+//			musicInstance = emitter.GetInstance();
+//			//musicInstance.start();
+//		}
+
+		if (musicInstance == null) {
+			musicInstance = emitter.GetInstance();
+			musicInstance.start();
+		}
 	}
 }
