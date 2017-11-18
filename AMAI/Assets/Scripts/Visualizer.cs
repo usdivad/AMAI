@@ -34,7 +34,10 @@ public class Visualizer : MonoBehaviour
 		FMODUnity.RuntimeManager.LowlevelSystem.getMasterChannelGroup(out channelGroup);
 		channelGroup.addDSP(FMOD.CHANNELCONTROL_DSP_INDEX.HEAD, fft);
 
-		musicInstance.start();
+		if (musicInstance == null) {
+			musicInstance = emitter.GetInstance();
+			//musicInstance.start();
+		}
 	}
 
 	const float WIDTH = 10.0f;
@@ -42,6 +45,11 @@ public class Visualizer : MonoBehaviour
 
 	void Update()
 	{
+		if (musicInstance == null) {
+			musicInstance = emitter.GetInstance();
+			//musicInstance.start();
+		}
+
 		IntPtr unmanagedData;
 		uint length;
 		fft.getParameterData((int)FMOD.DSP_FFT.SPECTRUMDATA, out unmanagedData, out length);
