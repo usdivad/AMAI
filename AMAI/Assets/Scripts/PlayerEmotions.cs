@@ -32,7 +32,7 @@ public class PlayerEmotions : ImageResultsListener
 	private int numImageResults = 0;
 	private float overallValence = 0f;
 	private float initialValence = 0f;
-	private int numDataPointsForInitialValence = 120;
+	private int numDataPointsForInitialValence = 60;
 	private int sectionNum = 1;
 
 	//private string id;
@@ -59,6 +59,8 @@ public class PlayerEmotions : ImageResultsListener
 		// Set section
 		bool shouldGoToNextSection = false;
 		shouldGoToNextSection = overallValence > 0.5f || overallInitialValenceDiff > 0.1f; // Actually, this *is* basically looking for peaks
+		WriteRowToCSV(true);
+
 		// TODO: Another one based on current timeline position
 
 		if (shouldGoToNextSection) {
@@ -129,71 +131,90 @@ public class PlayerEmotions : ImageResultsListener
 			featurePointsList = face.FeaturePoints;
 
 			// Write to CSV
-			string id = amaiManager.GetID();
-			int group = amaiManager.GetGroup ();
-			int stage = amaiManager.GetStage();
-			string now = System.DateTime.Now.ToString ("MM/dd/yyyy hh:mm:ss");
-			if (stage < 1) {
-				break;
-			}
-
-			string csvPath = basePath + "/" + id + ".csv";
-			List<List<string>> dataGrid = new List<List<string>>();
-			if (System.IO.File.Exists (csvPath)) {
-				dataGrid = CsvFileReader.ReadAll (csvPath, Encoding.GetEncoding("gbk"));
-			}
-			else {
-				List<string> header = new List<string>() {
-					"id",
-					"group",
-					"stage",
-					"datetime",
-					"emotion_joy",
-					"emotion_fear",
-					"emotion_disgust",
-					"emotion_sadness",
-					"emotion_anger",
-					"emotion_surprise",
-					"emotion_contempt",
-					"emotion_valence",
-					"emotion_engagement",
-				};
-				dataGrid.Add (header);
-			}
-
-			CsvFileWriter writer = new CsvFileWriter(csvPath);
-			List<string> row = new List<string> () {
-				id,
-				group.ToString(),
-				stage.ToString(),
-				now,
-				currentJoy.ToString(),
-				currentFear.ToString(),
-				currentDisgust.ToString(),
-				currentSadness.ToString(),
-				currentAnger.ToString(),
-				currentSurprise.ToString(),
-				currentContempt.ToString(),
-				currentValence.ToString(),
-				currentEngagement.ToString()
-			};
-
-			//writer.WriteRow (row);
-			//writer.Dispose ();
-
-			dataGrid.Add(row);
-			//CsvFileWriter.WriteAll (dataGrid, csvPath, Encoding.GetEncoding("utf-32"));
-			foreach(List<string> r in dataGrid) {
-				writer.WriteRow(r);
-			}
-			writer.Dispose ();
+			WriteRowToCSV();
 		}
 
-		UpdateMusicEmitter ();
-		numImageResults++;
+		int stage = amaiManager.GetStage();
+		if (stage == 4 || stage == 6) {
+			UpdateMusicEmitter ();
+			numImageResults++;
+		}
+		else {
+			numImageResults = 0; // reset
+		}
+
 	}
 
 //	public void SetID(string newId) {
 //		id = newId;
 //	}
+
+	void WriteRowToCSV(bool sectionChange=false) {
+		string id = amaiManager.GetID();
+		int group = amaiManager.GetGroup ();
+		int stage = amaiManager.GetStage();
+		string now = System.DateTime.Now.ToString ("MM/dd/yyyy hh:mm:ss");
+		if (stage < 1) {
+			return;
+		}
+
+		string csvPath = basePath + "/" + id + ".csv";
+		List<List<string>> dataGrid = new List<List<string>>();
+		if (System.IO.File.Exists (csvPath)) {
+			dataGrid = CsvFileReader.ReadAll (csvPath, Encoding.GetEncoding("gbk"));
+		}
+		else {
+			List<string> header = new List<string>() {
+				"id",
+				"group",
+				"stage",
+				"datetime",
+				"emotion_joy",
+				"emotion_fear",
+				"emotion_disgust",
+				"emotion_sadness",
+				"emotion_anger",
+				"emotion_surprise",
+				"emotion_contempt",
+				"emotion_valence",
+				"emotion_engagement",
+				"expression_smile",
+				"music_valence_initial",
+				"music_valence_overall",
+				//"section_change"
+			};
+			dataGrid.Add (header);
+		}
+
+		CsvFileWriter writer = new CsvFileWriter(csvPath);
+		List<string> row = new List<string> () {
+			id,
+			group.ToString(),
+			stage.ToString(),
+			now,
+			currentJoy.ToString(),
+			currentFear.ToString(),
+			currentDisgust.ToString(),
+			currentSadness.ToString(),
+			currentAnger.ToString(),
+			currentSurprise.ToString(),
+			currentContempt.ToString(),
+			currentValence.ToString(),
+			currentEngagement.ToString(),
+			currentSmile.ToString(),
+			initialValence.ToString(),
+			overallValence.ToString(),
+			//sectionChange ? "1" : "0"
+		};
+
+		//writer.WriteRow (row);
+		//writer.Dispose ();
+
+		dataGrid.Add(row);
+		//CsvFileWriter.WriteAll (dataGrid, csvPath, Encoding.GetEncoding("utf-32"));
+		foreach(List<string> r in dataGrid) {
+			writer.WriteRow(r);
+		}
+		writer.Dispose ();
+	}
 }
