@@ -37,7 +37,7 @@ public class PlayerEmotions : ImageResultsListener
 	private bool hasSection4Occurred = false;
 	private bool shouldGoToNextSection = false;
 	private bool isSectionTransitionForced = false;
-	private float forceSectionTransitionTime = 20.0f;
+	private float forceSectionTransitionTime = 5.0f;
 
 	//private string id;
 
