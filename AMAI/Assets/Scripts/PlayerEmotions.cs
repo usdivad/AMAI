@@ -33,14 +33,16 @@ public class PlayerEmotions : ImageResultsListener
 	private float overallValence = 0f;
 	private float initialValence = 0f;
 	private int numDataPointsForInitialValence = 60;
-	private int sectionNum = 1;
+	private int sectionNum = 0;
 	private bool hasSection4Occurred = false;
+	private bool shouldGoToNextSection = false;
 	private bool isSectionTransitionForced = false;
+	private float forceSectionTransitionTime = 5.0f;
 
 	//private string id;
 
 	void Start() {
-		emitter.SetParameter ("section_num", 1f);
+		//emitter.SetParameter ("section_num", 1f); // Gets set by AMAIManager now
 	}
 
 	void UpdateMusicEmitter() {
@@ -61,75 +63,116 @@ public class PlayerEmotions : ImageResultsListener
 		//Debug.Log ("difference between overall and initial: " + overallInitialValenceDiff);
 
 		// Set section
-		bool shouldGoToNextSection = false;
-		shouldGoToNextSection = overallValence > 0.5f || overallInitialValenceDiff > 0.1f; // Actually, this *is* basically looking for peaks
-		if (shouldGoToNextSection) {
-			WriteRowToCSV (true);
-		}
+		//bool shouldGoToNextSection = false;
+		int position = 0;
+		emitter.GetTimelinePosition (out position);
+		Debug.Log ("position: " + position);
 
-		// TODO: Another one based on current timeline position
+		if (!(shouldGoToNextSection || isSectionTransitionForced)) {
+			Debug.Log ("a");
 
-		if (shouldGoToNextSection || isSectionTransitionForced) {
-			CancelInvoke ("ForceSectionTransition");
-			Invoke ("ForceSectionTransition", 60.0f);
-
-			int prevSectionNum = sectionNum;
-
-			int group = amaiManager.GetGroup ();
-
-			if (group == 1) { // Discharge: 1-2-4-1-2-8
-				if (sectionNum == 1) {
-					sectionNum = 2;
-				} else if (sectionNum == 2) {
-					if (hasSection4Occurred) {
-						sectionNum = 8;
-					} else {
-						sectionNum = 4;
-					}
-				} else if (sectionNum == 4) {
-					sectionNum = 1;
-					hasSection4Occurred = true;
-				}
-//				} else if (sectionNum == 5) {
-//					sectionNum = 6;
-//				} else {
-//					sectionNum = 7;
-//				}
+			if (position < (0*60000) + (3*1000) + 333) {
+				Debug.Log ("invok");
+				Invoke ("ForceSectionTransition", forceSectionTransitionTime);
 			}
-			else if (group == 2) { // Diversion: 5-6-4-5-6-7
-				if (sectionNum == 5) {
-					sectionNum = 6;
-				} else if (sectionNum == 6) {
-					if (hasSection4Occurred) {
+
+			shouldGoToNextSection = overallValence > 0.5f || overallInitialValenceDiff > 0.1f; // Actually, this *is* basically looking for peaks
+			if (shouldGoToNextSection) {
+				Debug.Log ("Peak detected! overall=" + overallValence + ", diff=" + overallInitialValenceDiff);
+				WriteRowToCSV (true);
+			}
+
+			// Set based on group
+			int group = amaiManager.GetGroup ();
+			if (group == 2 && (sectionNum == 1 || sectionNum == 2)) {
+				sectionNum = 5;
+			}
+
+
+			if (shouldGoToNextSection || isSectionTransitionForced) {
+				CancelInvoke ("ForceSectionTransition");
+				Invoke ("ForceSectionTransition", forceSectionTransitionTime);
+
+				int prevSectionNum = sectionNum;
+
+				if (group == 1) { // Discharge: 1-2-4-1-2-8
+					if (sectionNum == 1) {
+						sectionNum = 2;
+					} else if (sectionNum == 2) {
+						if (hasSection4Occurred) {
+							sectionNum = 8;
+						} else {
+							sectionNum = 4;
+						}
+					} else if (sectionNum == 4) {
+						sectionNum = 1;
+						hasSection4Occurred = true;
+					}
+					//				} else if (sectionNum == 5) {
+					//					sectionNum = 6;
+					//				} else {
+					//					sectionNum = 7;
+					//				}
+				} else if (group == 2) { // Diversion: 5-6-4-5-6-7
+					if (sectionNum == 5) {
+						sectionNum = 6;
+					} else if (sectionNum == 6) {
+						if (hasSection4Occurred) {
+							sectionNum = 7;
+						} else {
+							sectionNum = 4;
+						}
+					} else if (sectionNum == 4) {
+						sectionNum = 5;
+						hasSection4Occurred = true;
+					}
+				} else if (group == 3) { // Combination: 1-2-4-5-6-7
+					if (sectionNum == 1) {
+						sectionNum = 2;
+					} else if (sectionNum == 2) {
+						sectionNum = 4;
+					} else if (sectionNum == 4) {
+						sectionNum = 5;
+						hasSection4Occurred = true;
+					} else if (sectionNum == 5) {
+						sectionNum = 6;
+					} else {
 						sectionNum = 7;
 					}
-					else {
-						sectionNum = 4;
-					}
-				} else if (sectionNum == 4) {
-					sectionNum = 5;
-					hasSection4Occurred = true;
 				}
+				Debug.Log ("going from section " + prevSectionNum + " to " + sectionNum);
 			}
-			else if (group == 3) { // Combination: 1-2-4-5-6-7
-				if (sectionNum == 1) {
-					sectionNum = 2;
-				} else if (sectionNum == 2) {
-					sectionNum = 4;
-				} else if (sectionNum == 4) {
-					sectionNum = 5;
-					hasSection4Occurred = true;
-				} else if (sectionNum == 5) {
-					sectionNum = 6;
-				} else {
-					sectionNum = 7;
-				}
-			}
-			Debug.Log ("going from section " + prevSectionNum + " to " + sectionNum);
 
 			// REset
-			shouldGoToNextSection = false;
-			isSectionTransitionForced = false;
+			//shouldGoToNextSection = false;
+			//isSectionTransitionForced = false;
+		}
+		else {
+			int trueSectionNum = 0;
+			if (position >= (4*60000) + (12*1000) + 982) {
+				trueSectionNum = 7;
+			}
+			else if (position >= (3*60000) + (44*1000) + 561) {
+				trueSectionNum = 6;
+			}
+			else if (position >= (3*60000) + (6*1000) + 667) {
+				trueSectionNum = 5;
+			}
+			else if (position >= (2*60000) + (0*1000) + 0) {
+				trueSectionNum = 4;
+			}
+			else if (position >= (0*60000) + (30*1000) + 0) {
+				trueSectionNum = 2;
+			}
+			else if (position >= (0*60000) + (3*1000) + 333) {
+				trueSectionNum = 1;
+			}
+
+			if (sectionNum == trueSectionNum) {
+				// Clear/reset
+				shouldGoToNextSection = false;
+				isSectionTransitionForced = false;
+			}
 		}
 
 		// Update music emitter
@@ -203,7 +246,8 @@ public class PlayerEmotions : ImageResultsListener
 //		id = newId;
 //	}
 
-	void ForceSectionTransition() {
+	public void ForceSectionTransition() {
+		Debug.Log ("forcing section transition");
 		isSectionTransitionForced = true;
 	}
 

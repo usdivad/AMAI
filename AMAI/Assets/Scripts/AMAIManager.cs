@@ -22,7 +22,7 @@ public class AMAIManager : MonoBehaviour {
 	private bool hasStartedStage2 = false;
 	private bool hasStartedStage4 = false;
 	private bool hasStartedStage6 = false;
-	private float musicMaxDur = 10.0f;
+	private float musicMaxDur = 300.0f;
 	private string id;
 	private int group;
 
@@ -66,6 +66,8 @@ public class AMAIManager : MonoBehaviour {
 			}
 			if (!emitter.IsPlaying()) {
 				emitter.Play ();
+				//float sectionNum = (group == 2) ? 5f : 1f;
+				//emitter.SetParameter("section_num", sectionNum);
 			}
 
 			break;
@@ -79,6 +81,8 @@ public class AMAIManager : MonoBehaviour {
 			}
 			if (!emitter.IsPlaying()) {
 				emitter.Play ();
+				//float sectionNum = (group == 2) ? 5f : 1f;
+				//emitter.SetParameter("section_num", sectionNum);
 			}
 			break;
 		case 7:
@@ -123,8 +127,24 @@ public class AMAIManager : MonoBehaviour {
 	}
 
 	void StartMusicEmitter() {
-		emitter.SetParameter("sectionNum", 1f); // Reset
+//		float sectionNum = 0;
+//		if (group == 1) {
+//			sectionNum = 1;
+//		}
+//		else if (group == 2) {
+//			sectionNum = 5;
+//		}
+//		else if (group == 3) {
+//			sectionNum = 1;
+//		}
+
+		//float sectionNum = (group == 2) ? 5f : 1f;
+		//emitter.SetParameter("section_num", sectionNum); // Reset
+		//Debug.Log("set section_num to " + sectionNum);
+		//emitter.SetParameterValueByIndex (emitter.GetParameterIndex ("section_num"), sectionNum);
 		emitter.Play ();
+		//emitter.SetParameter("section_num", sectionNum); // Reset
+
 
 		canvas.enabled = false;
 
@@ -132,6 +152,7 @@ public class AMAIManager : MonoBehaviour {
 	}
 
 	void StopMusicEmitter() {
+		CancelInvoke ("StopMusicEmitter");
 		emitter.Stop ();
 		canvas.enabled = true;
 		continueButton.gameObject.SetActive(true);
