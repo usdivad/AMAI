@@ -155,7 +155,7 @@ public class AMAIManager : MonoBehaviour {
 			canvas.enabled = false;
 		//}
 
-		//Invoke ("StopMusicEmitter", musicMaxDur);
+		Invoke ("StopMusicEmitter", musicMaxDur);
 	}
 
 	void StopMusicEmitter() {
