@@ -144,6 +144,7 @@ public class PlayerEmotions : ImageResultsListener
 				List<string> header = new List<string>() {
 					"id",
 					"stage",
+					"datetime",
 					"emotion_joy",
 					"emotion_fear",
 					"emotion_disgust",
@@ -161,6 +162,7 @@ public class PlayerEmotions : ImageResultsListener
 			List<string> row = new List<string> () {
 				id,
 				stage.ToString(),
+				System.DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss"),
 				currentJoy.ToString(),
 				currentFear.ToString(),
 				currentDisgust.ToString(),
