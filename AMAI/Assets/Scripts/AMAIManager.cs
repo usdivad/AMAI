@@ -64,6 +64,10 @@ public class AMAIManager : MonoBehaviour {
 				StartMedia ();
 				hasStartedStage4 = true;
 			}
+			if (!emitter.IsPlaying()) {
+				emitter.Play ();
+			}
+
 			break;
 		case 5:
 			texts [4].enabled = true;
@@ -72,6 +76,9 @@ public class AMAIManager : MonoBehaviour {
 			if (!hasStartedStage6) {
 				StartMedia ();
 				hasStartedStage6 = true;
+			}
+			if (!emitter.IsPlaying()) {
+				emitter.Play ();
 			}
 			break;
 		case 7:

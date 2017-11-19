@@ -140,7 +140,10 @@ public class PlayerEmotions : ImageResultsListener
 			numImageResults++;
 		}
 		else {
-			numImageResults = 0; // reset
+			// Reset params
+			numImageResults = 0;
+			initialValence = 0;
+			overallValence = 0;
 		}
 
 	}
