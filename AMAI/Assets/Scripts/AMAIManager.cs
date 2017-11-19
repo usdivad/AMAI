@@ -113,12 +113,12 @@ public class AMAIManager : MonoBehaviour {
 
 	void StartMedia() {
 		// Disable continue button
-		continueButton.gameObject.SetActive(false);
+		//continueButton.gameObject.SetActive(false);
 
 		switch (stage) {
 		case 2:
 			// Show OASIS images
-			oasisImage.gameObject.SetActive(true);
+			//oasisImage.gameObject.SetActive(true);
 			break;
 		case 4:
 			// Listen to music
@@ -151,8 +151,9 @@ public class AMAIManager : MonoBehaviour {
 		emitter.Play ();
 		//emitter.SetParameter("section_num", sectionNum); // Reset
 
-
-		canvas.enabled = false;
+		//if (stage == 6) {
+			canvas.enabled = false;
+		//}
 
 		//Invoke ("StopMusicEmitter", musicMaxDur);
 	}
@@ -192,6 +193,14 @@ public class AMAIManager : MonoBehaviour {
 		if (emitter.IsPlaying()) {
 			emitter.Stop ();
 		}
+	}
+
+	public void HandleToVizButtonClick() {
+		Debug.Log("to viz");
+		stage = 5;
+		id = idInput.text;
+		group = groupDropdown.value + 1;
+		idObj.SetActive (false);
 	}
 
 	public void HandleOASISImageClick() {
