@@ -242,13 +242,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emitter: {fileID: 62126799}
+  basePath: /Users/usdivad/Documents/columbia_4/gradApps/schools/mit/courses_1/affective_computing/amai/data
+  amaiManager: {fileID: 1619489143}
   currentSmile: 0
   currentInterocularDistance: 0
+  currentJoy: 0
+  currentFear: 0
+  currentDisgust: 0
+  currentSadness: 0
+  currentAnger: 0
+  currentSurprise: 0
   currentContempt: 0
   currentValence: 0
-  currentAnger: 0
-  currentFear: 0
-  currentSadness: 0
+  currentEngagement: 0
 --- !u!1 &62126798
 GameObject:
   m_ObjectHideFlags: 0
@@ -1648,7 +1654,6 @@ MonoBehaviour:
   oasisImage: {fileID: 564971628}
   idObj: {fileID: 603738483}
   idInput: {fileID: 1333294833}
-  id: 
 --- !u!4 &1619489144
 Transform:
   m_ObjectHideFlags: 0

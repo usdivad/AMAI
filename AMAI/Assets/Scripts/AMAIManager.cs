@@ -14,8 +14,7 @@ public class AMAIManager : MonoBehaviour {
 	public Image oasisImage;
 	public GameObject idObj;
 	public InputField idInput;
-
-	public string id;
+	//public PlayerEmotions emotionAnalyzer;
 
 	private int stage = 0;
 	private bool shouldStartMedia = false;
@@ -23,6 +22,7 @@ public class AMAIManager : MonoBehaviour {
 	private bool hasStartedStage4 = false;
 	private bool hasStartedStage6 = false;
 	private float musicMaxDur = 5.1f;
+	private string id;
 
 	// Use this for initialization
 	void Start () {
@@ -43,6 +43,7 @@ public class AMAIManager : MonoBehaviour {
 		case 1:
 			id = idInput.text;
 			idObj.SetActive (false);
+			//emotionAnalyzer.SetID (id);
 
 			texts [0].enabled = true;
 			break;
@@ -150,5 +151,13 @@ public class AMAIManager : MonoBehaviour {
 		oasisImage.gameObject.SetActive(false);
 		continueButton.gameObject.SetActive(true);
 		HandleContinueButtonClick ();
+	}
+
+	public string GetID() {
+		return id;
+	}
+
+	public int GetStage() {
+		return stage;
 	}
 }
