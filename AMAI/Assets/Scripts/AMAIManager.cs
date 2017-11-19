@@ -69,6 +69,9 @@ public class AMAIManager : MonoBehaviour {
 				//float sectionNum = (group == 2) ? 5f : 1f;
 				//emitter.SetParameter("section_num", sectionNum);
 			}
+			else {
+				CheckAndStopEmitterFromTimelinePosition();
+			}
 
 			break;
 		case 5:
@@ -83,6 +86,9 @@ public class AMAIManager : MonoBehaviour {
 				emitter.Play ();
 				//float sectionNum = (group == 2) ? 5f : 1f;
 				//emitter.SetParameter("section_num", sectionNum);
+			}
+			else {
+				CheckAndStopEmitterFromTimelinePosition();
 			}
 			break;
 		case 7:
@@ -148,7 +154,7 @@ public class AMAIManager : MonoBehaviour {
 
 		canvas.enabled = false;
 
-		Invoke ("StopMusicEmitter", musicMaxDur);
+		//Invoke ("StopMusicEmitter", musicMaxDur);
 	}
 
 	void StopMusicEmitter() {
@@ -157,6 +163,19 @@ public class AMAIManager : MonoBehaviour {
 		canvas.enabled = true;
 		continueButton.gameObject.SetActive(true);
 		HandleContinueButtonClick ();
+	}
+
+	void CheckAndStopEmitterFromTimelinePosition() {
+		bool shouldStop = false;
+		int position = 0;
+		emitter.GetTimelinePosition (out position);
+		if (position >= (4*60000) + (21*1000) + 500) {
+			shouldStop = true;
+		}
+
+		if (shouldStop) {
+			StopMusicEmitter();
+		}
 	}
 
 	void StartVisualizer() {
