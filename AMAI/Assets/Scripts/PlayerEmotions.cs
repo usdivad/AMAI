@@ -34,6 +34,8 @@ public class PlayerEmotions : ImageResultsListener
 	private float initialValence = 0f;
 	private int numDataPointsForInitialValence = 60;
 	private int sectionNum = 1;
+	private bool hasSection4Occurred = false;
+	private bool isSectionTransitionForced = false;
 
 	//private string id;
 
@@ -45,7 +47,6 @@ public class PlayerEmotions : ImageResultsListener
 		// Calculate overall valence (scaled 0-1)
 		float currentValenceScaled = (currentValence + 100f) / 200f; 
 		overallValence = (overallValence * 0.7f) + (currentValenceScaled * 0.3f);
-		Debug.Log ("overall valence: " + overallValence);
 
 		// Initial valence, if necessary
 		if (numImageResults <= numDataPointsForInitialValence) {
@@ -54,31 +55,81 @@ public class PlayerEmotions : ImageResultsListener
 
 		// Difference between overall and initial valence
 		float overallInitialValenceDiff = overallValence - initialValence;
-		Debug.Log ("difference between overall and initial: " + overallInitialValenceDiff);
+
+		// Kenny Loggins
+		//Debug.Log ("overall valence: " + overallValence);
+		//Debug.Log ("difference between overall and initial: " + overallInitialValenceDiff);
 
 		// Set section
 		bool shouldGoToNextSection = false;
 		shouldGoToNextSection = overallValence > 0.5f || overallInitialValenceDiff > 0.1f; // Actually, this *is* basically looking for peaks
-		WriteRowToCSV(true);
+		if (shouldGoToNextSection) {
+			WriteRowToCSV (true);
+		}
 
 		// TODO: Another one based on current timeline position
 
-		if (shouldGoToNextSection) {
-			if (sectionNum == 1) {
-				sectionNum = 2;
+		if (shouldGoToNextSection || isSectionTransitionForced) {
+			CancelInvoke ("ForceSectionTransition");
+			Invoke ("ForceSectionTransition", 60.0f);
+
+			int prevSectionNum = sectionNum;
+
+			int group = amaiManager.GetGroup ();
+
+			if (group == 1) { // Discharge: 1-2-4-1-2-8
+				if (sectionNum == 1) {
+					sectionNum = 2;
+				} else if (sectionNum == 2) {
+					if (hasSection4Occurred) {
+						sectionNum = 8;
+					} else {
+						sectionNum = 4;
+					}
+				} else if (sectionNum == 4) {
+					sectionNum = 1;
+					hasSection4Occurred = true;
+				}
+//				} else if (sectionNum == 5) {
+//					sectionNum = 6;
+//				} else {
+//					sectionNum = 7;
+//				}
 			}
-			else if (sectionNum == 2) {
-				sectionNum = 4;
+			else if (group == 2) { // Diversion: 5-6-4-5-6-7
+				if (sectionNum == 5) {
+					sectionNum = 6;
+				} else if (sectionNum == 6) {
+					if (hasSection4Occurred) {
+						sectionNum = 7;
+					}
+					else {
+						sectionNum = 4;
+					}
+				} else if (sectionNum == 4) {
+					sectionNum = 5;
+					hasSection4Occurred = true;
+				}
 			}
-			else if (sectionNum == 4) {
-				sectionNum = 5;
+			else if (group == 3) { // Combination: 1-2-4-5-6-7
+				if (sectionNum == 1) {
+					sectionNum = 2;
+				} else if (sectionNum == 2) {
+					sectionNum = 4;
+				} else if (sectionNum == 4) {
+					sectionNum = 5;
+					hasSection4Occurred = true;
+				} else if (sectionNum == 5) {
+					sectionNum = 6;
+				} else {
+					sectionNum = 7;
+				}
 			}
-			else if (sectionNum == 5) {
-				sectionNum = 6;
-			}
-			else {
-				sectionNum = 7;
-			}
+			Debug.Log ("going from section " + prevSectionNum + " to " + sectionNum);
+
+			// REset
+			shouldGoToNextSection = false;
+			isSectionTransitionForced = false;
 		}
 
 		// Update music emitter
@@ -152,6 +203,10 @@ public class PlayerEmotions : ImageResultsListener
 //		id = newId;
 //	}
 
+	void ForceSectionTransition() {
+		isSectionTransitionForced = true;
+	}
+
 	void WriteRowToCSV(bool sectionChange=false) {
 		string id = amaiManager.GetID();
 		int group = amaiManager.GetGroup ();
@@ -184,7 +239,7 @@ public class PlayerEmotions : ImageResultsListener
 				"expression_smile",
 				"music_valence_initial",
 				"music_valence_overall",
-				//"section_change"
+				"music_section_change"
 			};
 			dataGrid.Add (header);
 		}
@@ -207,7 +262,7 @@ public class PlayerEmotions : ImageResultsListener
 			currentSmile.ToString(),
 			initialValence.ToString(),
 			overallValence.ToString(),
-			//sectionChange ? "1" : "0"
+			sectionChange ? "1" : "0"
 		};
 
 		//writer.WriteRow (row);
