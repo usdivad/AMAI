@@ -105,6 +105,8 @@ public class PlayerEmotions : ImageResultsListener
 			//isSectionTransitionForced = false;
 		}
 		else {
+			Debug.Log("b");
+
 			int trueSectionNum = 0;
 			if (position >= (4*60000) + (12*1000) + 982) {
 				trueSectionNum = 7;
@@ -124,6 +126,8 @@ public class PlayerEmotions : ImageResultsListener
 			else if (position >= (0*60000) + (3*1000) + 333) {
 				trueSectionNum = 1;
 			}
+
+			Debug.Log("pos=" + position + ", n=" + sectionNum + ", true=" + trueSectionNum);
 
 			if (sectionNum == trueSectionNum) {
 				// Clear/reset
@@ -206,6 +210,7 @@ public class PlayerEmotions : ImageResultsListener
 	public void ForceSectionTransition() {
 		Debug.Log ("forcing section transition");
 		isSectionTransitionForced = true;
+		//shouldGoToNextSection = true;
 		SetNextSection();
 	}
 
