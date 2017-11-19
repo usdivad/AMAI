@@ -72,8 +72,9 @@ public class PlayerEmotions : ImageResultsListener
 			Debug.Log ("a");
 
 			if (position < (0*60000) + (3*1000) + 333) {
-				Debug.Log ("invok");
-				Invoke ("ForceSectionTransition", forceSectionTransitionTime);
+				//Debug.Log ("invok");
+				//Invoke ("ForceSectionTransition", forceSectionTransitionTime);
+				ForceSectionTransition(); // immediately
 			}
 
 			shouldGoToNextSection = overallValence > 0.5f || overallInitialValenceDiff > 0.1f; // Actually, this *is* basically looking for peaks
@@ -96,7 +97,10 @@ public class PlayerEmotions : ImageResultsListener
 				int prevSectionNum = sectionNum;
 
 				if (group == 1) { // Discharge: 1-2-4-1-2-8
-					if (sectionNum == 1) {
+					if (sectionNum == 0) {
+						sectionNum = 1;
+					}
+					else if (sectionNum == 1) {
 						sectionNum = 2;
 					} else if (sectionNum == 2) {
 						if (hasSection4Occurred) {
@@ -114,7 +118,10 @@ public class PlayerEmotions : ImageResultsListener
 					//					sectionNum = 7;
 					//				}
 				} else if (group == 2) { // Diversion: 5-6-4-5-6-7
-					if (sectionNum == 5) {
+					if (sectionNum == 0) {
+						sectionNum = 5;
+					}
+					else if (sectionNum == 5) {
 						sectionNum = 6;
 					} else if (sectionNum == 6) {
 						if (hasSection4Occurred) {
@@ -127,7 +134,10 @@ public class PlayerEmotions : ImageResultsListener
 						hasSection4Occurred = true;
 					}
 				} else if (group == 3) { // Combination: 1-2-4-5-6-7
-					if (sectionNum == 1) {
+					if (sectionNum == 0) {
+						sectionNum = 1;
+					}
+					else if (sectionNum == 1) {
 						sectionNum = 2;
 					} else if (sectionNum == 2) {
 						sectionNum = 4;
