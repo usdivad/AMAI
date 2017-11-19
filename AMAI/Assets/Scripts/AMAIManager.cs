@@ -14,6 +14,7 @@ public class AMAIManager : MonoBehaviour {
 	public Image oasisImage;
 	public GameObject idObj;
 	public InputField idInput;
+	public Dropdown groupDropdown;
 	//public PlayerEmotions emotionAnalyzer;
 
 	private int stage = 0;
@@ -23,6 +24,7 @@ public class AMAIManager : MonoBehaviour {
 	private bool hasStartedStage6 = false;
 	private float musicMaxDur = 5.1f;
 	private string id;
+	private int group;
 
 	// Use this for initialization
 	void Start () {
@@ -42,6 +44,7 @@ public class AMAIManager : MonoBehaviour {
 		switch (stage) {
 		case 1:
 			id = idInput.text;
+			group = groupDropdown.value + 1;
 			idObj.SetActive (false);
 			//emotionAnalyzer.SetID (id);
 
@@ -159,5 +162,9 @@ public class AMAIManager : MonoBehaviour {
 
 	public int GetStage() {
 		return stage;
+	}
+
+	public int GetGroup() {
+		return group;
 	}
 }

@@ -130,7 +130,9 @@ public class PlayerEmotions : ImageResultsListener
 
 			// Write to CSV
 			string id = amaiManager.GetID();
+			int group = amaiManager.GetGroup ();
 			int stage = amaiManager.GetStage();
+			string now = System.DateTime.Now.ToString ("MM/dd/yyyy hh:mm:ss");
 			if (stage < 1) {
 				break;
 			}
@@ -143,6 +145,7 @@ public class PlayerEmotions : ImageResultsListener
 			else {
 				List<string> header = new List<string>() {
 					"id",
+					"group",
 					"stage",
 					"datetime",
 					"emotion_joy",
@@ -161,8 +164,9 @@ public class PlayerEmotions : ImageResultsListener
 			CsvFileWriter writer = new CsvFileWriter(csvPath);
 			List<string> row = new List<string> () {
 				id,
+				group.ToString(),
 				stage.ToString(),
-				System.DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss"),
+				now,
 				currentJoy.ToString(),
 				currentFear.ToString(),
 				currentDisgust.ToString(),
