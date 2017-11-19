@@ -66,7 +66,7 @@ public class PlayerEmotions : ImageResultsListener
 		//bool shouldGoToNextSection = false;
 		int position = 0;
 		emitter.GetTimelinePosition (out position);
-		Debug.Log ("position: " + position);
+		//Debug.Log ("position: " + position);
 
 		if (!(shouldGoToNextSection || isSectionTransitionForced)) {
 			Debug.Log ("a");
