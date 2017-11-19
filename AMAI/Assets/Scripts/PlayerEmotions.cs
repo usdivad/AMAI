@@ -37,7 +37,7 @@ public class PlayerEmotions : ImageResultsListener
 	private bool hasSection4Occurred = false;
 	private bool shouldGoToNextSection = false;
 	private bool isSectionTransitionForced = false;
-	private float forceSectionTransitionTime = 20.0f;
+	private float forceSectionTransitionTime = 5.0f;
 
 	//private string id;
 
@@ -81,9 +81,6 @@ public class PlayerEmotions : ImageResultsListener
 			if (shouldGoToNextSection) {
 				Debug.Log ("Peak detected! overall=" + overallValence + ", diff=" + overallInitialValenceDiff);
 				WriteRowToCSV (true);
-				
-				CancelInvoke ("ForceSectionTransition");
-				SetNextSection();
 			}
 
 			// Set based on group
@@ -97,7 +94,63 @@ public class PlayerEmotions : ImageResultsListener
 				CancelInvoke ("ForceSectionTransition");
 				Invoke ("ForceSectionTransition", forceSectionTransitionTime);
 
-				//SetNextSection();
+				int prevSectionNum = sectionNum;
+
+				if (group == 1) { // Discharge: 1-2-4-1-2-8
+					if (sectionNum == 0) {
+						sectionNum = 1;
+					}
+					else if (sectionNum == 1) {
+						sectionNum = 2;
+					} else if (sectionNum == 2) {
+						if (hasSection4Occurred) {
+							sectionNum = 8;
+						} else {
+							sectionNum = 4;
+						}
+					} else if (sectionNum == 4) {
+						sectionNum = 1;
+						hasSection4Occurred = true;
+					}
+					//				} else if (sectionNum == 5) {
+					//					sectionNum = 6;
+					//				} else {
+					//					sectionNum = 7;
+					//				}
+				} else if (group == 2) { // Diversion: 5-6-4-5-6-7
+					if (sectionNum == 0) {
+						sectionNum = 5;
+					}
+					else if (sectionNum == 5) {
+						sectionNum = 6;
+					} else if (sectionNum == 6) {
+						if (hasSection4Occurred) {
+							sectionNum = 7;
+						} else {
+							sectionNum = 4;
+						}
+					} else if (sectionNum == 4) {
+						sectionNum = 5;
+						hasSection4Occurred = true;
+					}
+				} else if (group == 3) { // Combination: 1-2-4-5-6-7
+					if (sectionNum == 0) {
+						sectionNum = 1;
+					}
+					else if (sectionNum == 1) {
+						sectionNum = 2;
+					} else if (sectionNum == 2) {
+						sectionNum = 4;
+					} else if (sectionNum == 4) {
+						sectionNum = 5;
+						hasSection4Occurred = true;
+					} else if (sectionNum == 5) {
+						sectionNum = 6;
+					} else {
+						sectionNum = 7;
+					}
+				}
+				Debug.Log ("going from section " + prevSectionNum + " to " + sectionNum);
 			}
 
 			// REset
@@ -206,68 +259,6 @@ public class PlayerEmotions : ImageResultsListener
 	public void ForceSectionTransition() {
 		Debug.Log ("forcing section transition");
 		isSectionTransitionForced = true;
-		SetNextSection();
-	}
-
-	void SetNextSection() {
-		int group = amaiManager.GetGroup ();
-		int prevSectionNum = sectionNum;
-
-		if (group == 1) { // Discharge: 1-2-4-1-2-8
-			if (sectionNum == 0) {
-				sectionNum = 1;
-			}
-			else if (sectionNum == 1) {
-				sectionNum = 2;
-			} else if (sectionNum == 2) {
-				if (hasSection4Occurred) {
-					sectionNum = 8;
-				} else {
-					sectionNum = 4;
-				}
-			} else if (sectionNum == 4) {
-				sectionNum = 1;
-				hasSection4Occurred = true;
-			}
-			//				} else if (sectionNum == 5) {
-			//					sectionNum = 6;
-			//				} else {
-			//					sectionNum = 7;
-			//				}
-		} else if (group == 2) { // Diversion: 5-6-4-5-6-7
-			if (sectionNum == 0) {
-				sectionNum = 5;
-			}
-			else if (sectionNum == 5) {
-				sectionNum = 6;
-			} else if (sectionNum == 6) {
-				if (hasSection4Occurred) {
-					sectionNum = 7;
-				} else {
-					sectionNum = 4;
-				}
-			} else if (sectionNum == 4) {
-				sectionNum = 5;
-				hasSection4Occurred = true;
-			}
-		} else if (group == 3) { // Combination: 1-2-4-5-6-7
-			if (sectionNum == 0) {
-				sectionNum = 1;
-			}
-			else if (sectionNum == 1) {
-				sectionNum = 2;
-			} else if (sectionNum == 2) {
-				sectionNum = 4;
-			} else if (sectionNum == 4) {
-				sectionNum = 5;
-				hasSection4Occurred = true;
-			} else if (sectionNum == 5) {
-				sectionNum = 6;
-			} else {
-				sectionNum = 7;
-			}
-		}
-		Debug.Log ("going from section " + prevSectionNum + " to " + sectionNum);
 	}
 
 	void WriteRowToCSV(bool sectionChange=false) {
