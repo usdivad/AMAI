@@ -12,19 +12,24 @@ public class AMAIManager : MonoBehaviour {
 	public Canvas canvas;
 	public Button continueButton;
 	public Image oasisImage;
+	public GameObject idObj;
+	public InputField idInput;
 
-	private int stage = 1;
+	public string id;
+
+	private int stage = 0;
 	private bool shouldStartMedia = false;
 	private bool hasStartedStage2 = false;
 	private bool hasStartedStage4 = false;
 	private bool hasStartedStage6 = false;
-
 	private float musicMaxDur = 5.1f;
 
 	// Use this for initialization
 	void Start () {
 		//visualizer.gameObject.SetActive(false);
 		//canvas.enabled = false;
+		continueButton.gameObject.SetActive(true);
+
 		oasisImage.gameObject.SetActive(false);
 		DisableAllTexts ();
 	}
@@ -36,6 +41,9 @@ public class AMAIManager : MonoBehaviour {
 		// Stage
 		switch (stage) {
 		case 1:
+			id = idInput.text;
+			idObj.SetActive (false);
+
 			texts [0].enabled = true;
 			break;
 		case 2:
