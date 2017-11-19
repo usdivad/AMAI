@@ -22,7 +22,7 @@ public class AMAIManager : MonoBehaviour {
 	private bool hasStartedStage2 = false;
 	private bool hasStartedStage4 = false;
 	private bool hasStartedStage6 = false;
-	private float musicMaxDur = 300.0f;
+	private float musicMaxDur = (3 * 60f) + 30f;
 	private string id;
 	private int group;
 
