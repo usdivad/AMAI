@@ -3,6 +3,8 @@
 .DS_Store
 *.log
 
+gitlog.txt
+
 AMAI/Assets/Affdex
 AMAI/Assets/StreamingAssets/affdex-data-3
 AMAI/Assets/StreamingAssets/affdex-data-ios
@@ -10,6 +12,7 @@ AMAI/Assets/StreamingAssets/affdex-data-osx
 
 data
 oasis
+oasis_picked
 
 MusicStaging/.cache
 
