@@ -16,6 +16,8 @@ public class AMAIManager : MonoBehaviour {
 	public InputField idInput;
 	public Dropdown groupDropdown;
 	//public PlayerEmotions emotionAnalyzer;
+	public string id = "0";
+	public int group = 1; // 1-3
 
 	private int stage = 0;
 	private bool shouldStartMedia = false;
@@ -23,8 +25,6 @@ public class AMAIManager : MonoBehaviour {
 	private bool hasStartedStage4 = false;
 	private bool hasStartedStage6 = false;
 	private float musicMaxDur = (3 * 60f) + 30f;
-	private string id;
-	private int group;
 
 	// Use this for initialization
 	void Start () {
@@ -43,8 +43,8 @@ public class AMAIManager : MonoBehaviour {
 		// Stage
 		switch (stage) {
 		case 1:
-			id = idInput.text;
-			group = groupDropdown.value + 1;
+			//id = idInput.text;
+			//group = groupDropdown.value + 1;
 			idObj.SetActive (false);
 			//emotionAnalyzer.SetID (id);
 
@@ -198,8 +198,8 @@ public class AMAIManager : MonoBehaviour {
 	public void HandleToVizButtonClick() {
 		Debug.Log("to viz");
 		stage = 5;
-		id = idInput.text;
-		group = groupDropdown.value + 1;
+		//id = idInput.text;
+		//group = groupDropdown.value + 1;
 		idObj.SetActive (false);
 	}
 
