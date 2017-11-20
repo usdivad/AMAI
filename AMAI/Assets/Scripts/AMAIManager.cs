@@ -18,6 +18,8 @@ public class AMAIManager : MonoBehaviour {
 	//public PlayerEmotions emotionAnalyzer;
 	public string id = "0";
 	public int group = 1; // 1-3
+	public bool testing = false;
+	public Text testingText;
 
 	private int stage = 0;
 	private bool shouldStartMedia = false;
@@ -34,6 +36,15 @@ public class AMAIManager : MonoBehaviour {
 
 		oasisImage.gameObject.SetActive(false);
 		DisableAllTexts ();
+
+		if (testing) {
+			id = "0";
+			//group = 1;
+			testingText.enabled = true;
+		}
+		else {
+			testingText.enabled = false;
+		}
 	}
 	
 	// Update is called once per frame
